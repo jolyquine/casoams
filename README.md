@@ -10,43 +10,43 @@ Se utilizan las siguientes tecnologias:
 - Docker
 
 ## Crear la imagen para el contenedor Docker
-'''
+```
 docker build -t casoams .
-'''
+```
 
 ## Ubicar la ruta del proyecto y ejecutar el contenedor conla imagen creada
 
 Sustituir directorio-local-app por el directorio donde tiene alojado el proyecto.
 
-'''
+```
 docker run -it -d --name casoams -p 8080:8080 -p 8000:8000  -v directorio-local-app:/app casoams
-'''
+```
 
 ## Ejecutar los siguientes comandos para los modelaos de base de datos
 
-'''
+```
 python3 manage.py makemigrations
 python3 manage.py migrate
-'''
+```
 ## Ejecutar la migracion de la api cliente
 
-'''
+```
 python3 manage.py makemigrations
 python3 manage.py migrate
-'''
+```
 ## Crear el usuario administrador
 
 Para usar la aplacion de administracion que tiene Django, es necesario crear un superusuario, con el siguiente comando.
-'''
+```
 python3 manage.py createsuperuser
-'''
+```
 Una vez que levante el servidor, ingrese en la url http://127.0.0.1:8080/admin/
 
 
 ## Levantar el servidor en desarrollo, indicando el puerto
-'''
+```
 python3 manage.py runserver 0:8080
-'''
+```
 Este comando levanta el proyecto en un entorno de desarrollo (debug), en el puerto 8080, que es el que se indico en Docker. Si quiere usar el puerto 8000, se tiene que definir antes de crear el contenedor.
 
 ## Consultar al endponit 
